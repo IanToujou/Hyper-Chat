@@ -1,0 +1,39 @@
+name: HyperChat
+version: '${project.version}'
+main: net.toujoustudios.hyperchat.main.HyperChat
+api-version: 1.19
+author: Toujou Studios
+authors:
+  - IanToujou
+
+commands:
+  message:
+    description: Message a player privately.
+    aliases: [msg, tell]
+    permission: hyperchat.command.message
+  mute:
+    description: Mute a player.
+    permission: hyperchat.command.mute
+  unmute:
+    description: Unmute a player.
+    permission: hyperchat.command.unmute
+
+permissions:
+  hyperchat.group.player:
+    description: The player group.
+    children:
+      hyperchat.command.message: true
+  hyperchat.group.admin:
+    description: The administrator group. Grants all permissions.
+    children:
+      hyperchat.command.mute: true
+      hyperchat.command.unmute: true
+  hyperchat.command.message:
+    description: Allows players to use the message command.
+    default: true
+  hyperchat.command.mute:
+    description: Allows players to use the mute command.
+    default: op
+  hyperchat.command.unmute:
+    description: Allows players to use the unmute command.
+    default: op
