@@ -198,7 +198,7 @@ public class Config {
                     configuration.set("Chat.Emoji.List", emoji);
                 }
                 if(!configuration.isSet("Message.Prefix")) {
-                    configuration.set("Message.Prefix", "§6HiChatPlus §8|");
+                    configuration.set("Message.Prefix", "§6HyperChat §8|");
                 }
                 if(!configuration.isSet("Message.Error.Permission")) {
                     configuration.set("Message.Error.Permission", "{Prefix} §cYou do not have the permission to perform this command§8.");
@@ -366,7 +366,7 @@ public class Config {
                 configuration.set("Chat.Emoji.List", emoji);
             }
             if(!configuration.isSet("Message.Prefix")) {
-                configuration.set("Message.Prefix", "§6HiChatPlus §8|");
+                configuration.set("Message.Prefix", "§6HyperChat §8|");
             }
             if(!configuration.isSet("Message.Error.Permission")) {
                 configuration.set("Message.Error.Permission", "{Prefix} §cYou do not have the permission to perform this command§8.");
