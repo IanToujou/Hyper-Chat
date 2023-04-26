@@ -20,7 +20,7 @@ public class MessageCommand implements CommandExecutor {
         }
 
         if(player.hasPermission("hyperchat.command.message")) {
-            player.sendMessage(Config.MESSAGE_ERROR_NOPERMISSION);
+            player.sendMessage(Config.MESSAGE_ERROR_PERMISSION);
             return false;
         }
 
@@ -31,7 +31,12 @@ public class MessageCommand implements CommandExecutor {
 
         Player target = Bukkit.getPlayer(args[0]);
         if(target == null) {
-            player.sendMessage(Config.MESSAGE_ERROR_INVALIDPLAYER.replace("{Prefix}", Config.MESSAGE_PREFIX));
+            player.sendMessage(Config.MESSAGE_ERROR_PLAYER_INVALID.replace("{Prefix}", Config.MESSAGE_PREFIX));
+            return false;
+        }
+
+        if(target == player) {
+            player.sendMessage(Config.MESSAGE_ERROR_PLAYER_SELF.replace("{Prefix}", Config.MESSAGE_PREFIX));
             return false;
         }
 

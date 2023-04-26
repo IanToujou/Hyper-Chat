@@ -19,7 +19,7 @@ public class MuteCommand implements CommandExecutor {
         PlayerManager playerManager = PlayerManager.getPlayer(player);
 
         if(!player.hasPermission("hyperchat.command.mute")) {
-            player.sendMessage(Config.MESSAGE_ERROR_NOPERMISSION);
+            player.sendMessage(Config.MESSAGE_ERROR_PERMISSION);
             return false;
         }
 
@@ -30,7 +30,7 @@ public class MuteCommand implements CommandExecutor {
 
         Player target = Bukkit.getPlayer(args[0]);
         if(target == null) {
-            player.sendMessage(Config.MESSAGE_ERROR_INVALIDPLAYER);
+            player.sendMessage(Config.MESSAGE_ERROR_PLAYER_INVALID);
             return false;
         }
 

@@ -41,9 +41,10 @@ public class Config {
 
     //Message
     public static String MESSAGE_PREFIX;
-    public static String MESSAGE_ERROR_NOPERMISSION;
+    public static String MESSAGE_ERROR_PERMISSION;
     public static String MESSAGE_ERROR_SYNTAX;
-    public static String MESSAGE_ERROR_INVALIDPLAYER;
+    public static String MESSAGE_ERROR_PLAYER_INVALID;
+    public static String MESSAGE_ERROR_PLAYER_SELF;
     public static String MESSAGE_ERROR_MUTED_CHAT;
 
     public static String MESSAGE_NOTIFICATION_MUTE_SENDER;
@@ -199,14 +200,17 @@ public class Config {
                 if(!configuration.isSet("Message.Prefix")) {
                     configuration.set("Message.Prefix", "§6HiChatPlus §8|");
                 }
-                if(!configuration.isSet("Message.Error.NoPermission")) {
-                    configuration.set("Message.Error.NoPermission", "{Prefix} §cYou do not have the permission to perform this command§8.");
+                if(!configuration.isSet("Message.Error.Permission")) {
+                    configuration.set("Message.Error.Permission", "{Prefix} §cYou do not have the permission to perform this command§8.");
                 }
                 if(!configuration.isSet("Message.Error.Syntax")) {
                     configuration.set("Message.Error.Syntax", "{Prefix} §cThe command syntax is not correct§8. §cUsage§8: §e{Usage}");
                 }
-                if(!configuration.isSet("Message.Error.InvalidPlayer")) {
-                    configuration.set("Message.Error.InvalidPlayer", "{Prefix} §cThe given player is invalid§8.");
+                if(!configuration.isSet("Message.Error.PlayerInvalid")) {
+                    configuration.set("Message.Error.PlayerInvalid", "{Prefix} §cThe given player is invalid§8.");
+                }
+                if(!configuration.isSet("Message.Error.PlayerSelf")) {
+                    configuration.set("Message.Error.PlayerSelf", "{Prefix} §cYou cannot do that to yourself§8.");
                 }
                 if(!configuration.isSet("Message.Error.MutedChat")) {
                     configuration.set("Message.Error.MutedChat", "{Prefix} §cYou are currently muted§8. §cReason: §e{Reason}");
@@ -364,14 +368,17 @@ public class Config {
             if(!configuration.isSet("Message.Prefix")) {
                 configuration.set("Message.Prefix", "§6HiChatPlus §8|");
             }
-            if(!configuration.isSet("Message.Error.NoPermission")) {
-                configuration.set("Message.Error.NoPermission", "{Prefix} §cYou do not have the permission to perform this command§8.");
+            if(!configuration.isSet("Message.Error.Permission")) {
+                configuration.set("Message.Error.Permission", "{Prefix} §cYou do not have the permission to perform this command§8.");
             }
             if(!configuration.isSet("Message.Error.Syntax")) {
                 configuration.set("Message.Error.Syntax", "{Prefix} §cThe command syntax is not correct§8. §cUsage§8: §e{Usage}");
             }
-            if(!configuration.isSet("Message.Error.InvalidPlayer")) {
-                configuration.set("Message.Error.InvalidPlayer", "{Prefix} §cThe given player is invalid§8.");
+            if(!configuration.isSet("Message.Error.PlayerInvalid")) {
+                configuration.set("Message.Error.PlayerInvalid", "{Prefix} §cThe given player is invalid§8.");
+            }
+            if(!configuration.isSet("Message.Error.PlayerSelf")) {
+                configuration.set("Message.Error.PlayerSelf", "{Prefix} §cYou cannot do that to yourself§8.");
             }
             if(!configuration.isSet("Message.Error.MutedChat")) {
                 configuration.set("Message.Error.MutedChat", "{Prefix} §cYou are currently muted§8. §cReason: §e{Reason}");
@@ -416,9 +423,10 @@ public class Config {
         CHAT_EMOJI_LIST = settingsConfig.getStringList("Chat.Emoji.List");
 
         MESSAGE_PREFIX = settingsConfig.getString("Message.Prefix");
-        MESSAGE_ERROR_NOPERMISSION = settingsConfig.getString("Message.Error.NoPermission").replace("{Prefix}", MESSAGE_PREFIX);
+        MESSAGE_ERROR_PERMISSION = settingsConfig.getString("Message.Error.Permission").replace("{Prefix}", MESSAGE_PREFIX);
         MESSAGE_ERROR_SYNTAX = settingsConfig.getString("Message.Error.Syntax").replace("{Prefix}", MESSAGE_PREFIX);
-        MESSAGE_ERROR_INVALIDPLAYER = settingsConfig.getString("Message.Error.InvalidPlayer").replace("{Prefix}", MESSAGE_PREFIX);
+        MESSAGE_ERROR_PLAYER_INVALID = settingsConfig.getString("Message.Error.PlayerInvalid").replace("{Prefix}", MESSAGE_PREFIX);
+        MESSAGE_ERROR_PLAYER_SELF = settingsConfig.getString("Message.Error.PlayerSelf").replace("{Prefix}", MESSAGE_PREFIX);
         MESSAGE_ERROR_MUTED_CHAT = settingsConfig.getString("Message.Error.MutedChat").replace("{Prefix}", MESSAGE_PREFIX);
         MESSAGE_NOTIFICATION_MUTE_SENDER = settingsConfig.getString("Message.Notification.Mute.Sender").replace("{Prefix}", MESSAGE_PREFIX);
         MESSAGE_NOTIFICATION_MUTE_TARGET = settingsConfig.getString("Message.Notification.Mute.Target").replace("{Prefix}", MESSAGE_PREFIX);
