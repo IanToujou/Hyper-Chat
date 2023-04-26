@@ -19,7 +19,7 @@ public class MessageCommand implements CommandExecutor {
             return false;
         }
 
-        if(player.hasPermission("hyperchat.command.message")) {
+        if(!player.hasPermission("hyperchat.command.message")) {
             player.sendMessage(Config.MESSAGE_ERROR_PERMISSION);
             return false;
         }

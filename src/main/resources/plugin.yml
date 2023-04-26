@@ -23,19 +23,11 @@ permissions:
     description: The player group.
     children:
       hyperchat.command.message: true
-      hyperchat.command.tell: true
-      hyperchat.command.msg: true
   hyperchat.group.admin:
     description: The administrator group. Grants all permissions.
     children:
       hyperchat.command.mute: true
       hyperchat.command.unmute: true
-  hyperchat.command.msg:
-    description: Allows players to use the message command.
-    default: true
-  hyperchat.command.tell:
-    description: Allows players to use the message command.
-    default: true
   hyperchat.command.message:
     description: Allows players to use the message command.
     default: true
