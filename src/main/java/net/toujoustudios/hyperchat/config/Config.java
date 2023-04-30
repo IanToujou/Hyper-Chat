@@ -68,172 +68,165 @@ public class Config {
 
             YamlConfiguration configuration = YamlConfiguration.loadConfiguration(settingsConfigFile);
 
-            if(configuration.getInt("Config.Version") < HyperChat.CONFIG_VERSION) {
+            if(!configuration.isSet("UseDatabase")) {
+                configuration.set("UseDatabase", false);
+            }
+            if(!configuration.isSet("Chat.Color.Enabled")) {
+                configuration.set("Chat.Color.Enabled", true);
+            }
+            if(!configuration.isSet("Chat.Color.UsePermission")) {
+                configuration.set("Chat.Color.UsePermission", false);
+            }
+            if(!configuration.isSet("Chat.Color.Prefix")) {
+                configuration.set("Chat.Color.Prefix", "&");
+            }
+            if(!configuration.isSet("Chat.Default.Enabled")) {
+                configuration.set("Chat.Default.Enabled", true);
+            }
+            if(!configuration.isSet("Chat.Default.Color")) {
+                configuration.set("Chat.Default.Color", "§7");
+            }
+            if(!configuration.isSet("Chat.Default.Format")) {
+                configuration.set("Chat.Default.Format", "§6Chat §8| §e{Player} §8> {DefaultColor}{Message}");
+            }
+            if(!configuration.isSet("Chat.Private.Enabled")) {
+                configuration.set("Chat.Private.Enabled", true);
+            }
+            if(!configuration.isSet("Chat.Private.Sound.Enabled")) {
+                configuration.set("Chat.Private.Sound.Enabled", true);
+            }
+            if(!configuration.isSet("Chat.Private.Sound.Type")) {
+                configuration.set("Chat.Private.Sound.Type", "BLOCK_NOTE_BLOCK_PLING");
+            }
+            if(!configuration.isSet("Chat.Private.Sound.Pitch")) {
+                configuration.set("Chat.Private.Sound.Pitch", 1.0f);
+            }
+            if(!configuration.isSet("Chat.Private.Sound.Category")) {
+                configuration.set("Chat.Private.Sound.Category", "MASTER");
+            }
+            if(!configuration.isSet("Chat.Private.Color")) {
+                configuration.set("Chat.Private.Color", "§a");
+            }
+            if(!configuration.isSet("Chat.Private.Format.Sender")) {
+                configuration.set("Chat.Private.Format.Sender", "§6Private §8| §7To §e{Player} §8> {PrivateColor}{Message}");
+            }
+            if(!configuration.isSet("Chat.Private.Format.Target")) {
+                configuration.set("Chat.Private.Format.Target", "§6Private §8| §7From §e{Player} §8> {PrivateColor}{Message}");
+            }
+            if(!configuration.isSet("Chat.Emoji.Enabled")) {
+                configuration.set("Chat.Emoji.Enabled", true);
+            }
+            if(!configuration.isSet("Chat.Emoji.List")) {
+                ArrayList<String> emoji = new ArrayList<>();
+                emoji.add("heart/§c❤");
+                emoji.add("green_heart/§a❤");
+                emoji.add("purple_heart/§5❤");
+                emoji.add("skull/§f☠");
+                emoji.add("peace/§d☮");
+                emoji.add("yin_yang/§f☯");
+                emoji.add("spades/§8♠");
+                emoji.add("clubs/§8♣");
+                emoji.add("diamond/§b♦");
+                emoji.add("king/§6♔");
+                emoji.add("queen/§6♕");
+                emoji.add("fleur_de_lis/§b⚜");
+                emoji.add("star/§e★");
+                emoji.add("empty_star/§e☆");
+                emoji.add("comet/§b☄");
+                emoji.add("lightning_bolt/§e⚡");
+                emoji.add("moon/§e☾");
+                emoji.add("moon_inverted/§e☾");
+                emoji.add("sun/§e☀");
+                emoji.add("clouds/§f☁");
+                emoji.add("umbrella/§d☂");
+                emoji.add("snowman/§f☃");
+                emoji.add("smiling/§e☺");
+                emoji.add("frowning/§e☹");
+                emoji.add("telephone/§c☎");
+                emoji.add("point_left/§e☜");
+                emoji.add("point_right/§e☞");
+                emoji.add("point_up/§e☝");
+                emoji.add("point_down/§e☟");
+                emoji.add("writing_hand/§e✍");
+                emoji.add("victory_hand/§e✌");
+                emoji.add("radioactive/§6☢");
+                emoji.add("biohazard/§2☣");
+                emoji.add("hotsprings/§c♨");
+                emoji.add("flower/§d✿");
+                emoji.add("trident/§b♆");
+                emoji.add("star_and_moon/§e☪");
+                emoji.add("eighth_note/§5♪");
+                emoji.add("quarter_note/§5♩");
+                emoji.add("beamed_eighth_note/§5♫");
+                emoji.add("beamed_sixteenth_note/§5♬");
+                emoji.add("scissors/§c✂");
+                emoji.add("phone_sign/§a✆");
+                emoji.add("envelope/§f✉");
+                emoji.add("four_pointed_star/§e✦");
+                emoji.add("west_syriac_cross/§6♰");
+                emoji.add("east_syriac_cross/§6♱");
+                emoji.add("infinity/§b∞");
+                emoji.add("male/§9♂");
+                emoji.add("female/§d♀");
+                emoji.add("mercury/§4☿");
+                emoji.add("trademark/§b™");
+                emoji.add("registered/§b®");
+                emoji.add("copyright/§b©");
+                emoji.add("multiplication/§4✖");
+                emoji.add("cross/§c✗");
+                emoji.add("waves/§e♒");
+                emoji.add("up/§9▲");
+                emoji.add("down/§9▼");
+                emoji.add("dot_empty/§b○");
+                emoji.add("dot_filled/§b●");
+                emoji.add("tsu_smile/§eツ");
+                emoji.add("times/§f回");
+                emoji.add("for_all/§f∀");
+                emoji.add("up_tack/§f⊥");
+                emoji.add("angle/§f∠");
+                emoji.add("logic_or/§f∨");
+                emoji.add("logic_and/§f∧");
+                emoji.add("intersection/§f∩");
+                emoji.add("subset_of/§f⊂");
+                emoji.add("superset_of/§f⊃");
+                emoji.add("union/§f∪");
+                configuration.set("Chat.Emoji.List", emoji);
+            }
+            if(!configuration.isSet("Message.Prefix")) {
+                configuration.set("Message.Prefix", "§6HyperChat §8|");
+            }
+            if(!configuration.isSet("Message.Error.Permission")) {
+                configuration.set("Message.Error.Permission", "{Prefix} §cYou do not have the permission to perform this command§8.");
+            }
+            if(!configuration.isSet("Message.Error.Syntax")) {
+                configuration.set("Message.Error.Syntax", "{Prefix} §cThe command syntax is not correct§8. §cUsage§8: §e{Usage}");
+            }
+            if(!configuration.isSet("Message.Error.PlayerInvalid")) {
+                configuration.set("Message.Error.PlayerInvalid", "{Prefix} §cThe given player is invalid§8.");
+            }
+            if(!configuration.isSet("Message.Error.PlayerSelf")) {
+                configuration.set("Message.Error.PlayerSelf", "{Prefix} §cYou cannot do that to yourself§8.");
+            }
+            if(!configuration.isSet("Message.Error.MutedChat")) {
+                configuration.set("Message.Error.MutedChat", "{Prefix} §cYou are currently muted§8. §cReason: §e{Reason}");
+            }
+            if(!configuration.isSet("Message.Notification.Mute.Sender")) {
+                configuration.set("Message.Notification.Mute.Sender", "{Prefix} §e{Player} §chas been muted §8. §cReason§8: §e{Reason}");
+            }
+            if(!configuration.isSet("Message.Notification.Mute.Target")) {
+                configuration.set("Message.Notification.Mute.Target", "{Prefix} §cYou have been muted§8. §cReason§8: §e{Reason}");
+            }
+            if(!configuration.isSet("Message.Notification.Unmute.Sender")) {
+                configuration.set("Message.Notification.Unmute.Sender", "{Prefix} §e{Player} §chas been unmuted§8.");
+            }
+            if(!configuration.isSet("Message.Notification.Unmute.Target")) {
+                configuration.set("Message.Notification.Unmute.Target", "{Prefix} §cYou have been unmuted§8.");
+            }
 
-                Logger.log(LogLevel.WARNING, "Configuration file settings.yml is outdated. Updating now...");
-                configuration.set("Config.Version", HyperChat.CONFIG_VERSION);
-
-                if(!configuration.isSet("UseDatabase")) {
-                    configuration.set("UseDatabase", false);
-                }
-                if(!configuration.isSet("Chat.Color.Enabled")) {
-                    configuration.set("Chat.Color.Enabled", true);
-                }
-                if(!configuration.isSet("Chat.Color.UsePermission")) {
-                    configuration.set("Chat.Color.UsePermission", false);
-                }
-                if(!configuration.isSet("Chat.Color.Prefix")) {
-                    configuration.set("Chat.Color.Prefix", "&");
-                }
-                if(!configuration.isSet("Chat.Default.Enabled")) {
-                    configuration.set("Chat.Default.Enabled", true);
-                }
-                if(!configuration.isSet("Chat.Default.Color")) {
-                    configuration.set("Chat.Default.Color", "§7");
-                }
-                if(!configuration.isSet("Chat.Default.Format")) {
-                    configuration.set("Chat.Default.Format", "§6Chat §8| §e{Player} §8> {DefaultColor}{Message}");
-                }
-                if(!configuration.isSet("Chat.Private.Enabled")) {
-                    configuration.set("Chat.Private.Enabled", true);
-                }
-                if(!configuration.isSet("Chat.Private.Sound.Enabled")) {
-                    configuration.set("Chat.Private.Sound.Enabled", true);
-                }
-                if(!configuration.isSet("Chat.Private.Sound.Type")) {
-                    configuration.set("Chat.Private.Sound.Type", "BLOCK_NOTE_BLOCK_PLING");
-                }
-                if(!configuration.isSet("Chat.Private.Sound.Pitch")) {
-                    configuration.set("Chat.Private.Sound.Pitch", 1.0f);
-                }
-                if(!configuration.isSet("Chat.Private.Sound.Category")) {
-                    configuration.set("Chat.Private.Sound.Category", "MASTER");
-                }
-                if(!configuration.isSet("Chat.Private.Color")) {
-                    configuration.set("Chat.Private.Color", "§a");
-                }
-                if(!configuration.isSet("Chat.Private.Format.Sender")) {
-                    configuration.set("Chat.Private.Format.Sender", "§6Private §8| §7To §e{Player} §8> {PrivateColor}{Message}");
-                }
-                if(!configuration.isSet("Chat.Private.Format.Target")) {
-                    configuration.set("Chat.Private.Format.Target", "§6Private §8| §7From §e{Player} §8> {PrivateColor}{Message}");
-                }
-                if(!configuration.isSet("Chat.Emoji.Enabled")) {
-                    configuration.set("Chat.Emoji.Enabled", true);
-                }
-                if(!configuration.isSet("Chat.Emoji.List")) {
-                    ArrayList<String> emoji = new ArrayList<>();
-                    emoji.add("heart/§c❤");
-                    emoji.add("green_heart/§a❤");
-                    emoji.add("purple_heart/§5❤");
-                    emoji.add("skull/§f☠");
-                    emoji.add("peace/§d☮");
-                    emoji.add("yin_yang/§f☯");
-                    emoji.add("spades/§8♠");
-                    emoji.add("clubs/§8♣");
-                    emoji.add("diamond/§b♦");
-                    emoji.add("king/§6♔");
-                    emoji.add("queen/§6♕");
-                    emoji.add("fleur_de_lis/§b⚜");
-                    emoji.add("star/§e★");
-                    emoji.add("empty_star/§e☆");
-                    emoji.add("comet/§b☄");
-                    emoji.add("lightning_bolt/§e⚡");
-                    emoji.add("moon/§e☾");
-                    emoji.add("moon_inverted/§e☾");
-                    emoji.add("sun/§e☀");
-                    emoji.add("clouds/§f☁");
-                    emoji.add("umbrella/§d☂");
-                    emoji.add("snowman/§f☃");
-                    emoji.add("smiling/§e☺");
-                    emoji.add("frowning/§e☹");
-                    emoji.add("telephone/§c☎");
-                    emoji.add("point_left/§e☜");
-                    emoji.add("point_right/§e☞");
-                    emoji.add("point_up/§e☝");
-                    emoji.add("point_down/§e☟");
-                    emoji.add("writing_hand/§e✍");
-                    emoji.add("victory_hand/§e✌");
-                    emoji.add("radioactive/§6☢");
-                    emoji.add("biohazard/§2☣");
-                    emoji.add("hotsprings/§c♨");
-                    emoji.add("flower/§d✿");
-                    emoji.add("trident/§b♆");
-                    emoji.add("star_and_moon/§e☪");
-                    emoji.add("eighth_note/§5♪");
-                    emoji.add("quarter_note/§5♩");
-                    emoji.add("beamed_eighth_note/§5♫");
-                    emoji.add("beamed_sixteenth_note/§5♬");
-                    emoji.add("scissors/§c✂");
-                    emoji.add("phone_sign/§a✆");
-                    emoji.add("envelope/§f✉");
-                    emoji.add("four_pointed_star/§e✦");
-                    emoji.add("west_syriac_cross/§6♰");
-                    emoji.add("east_syriac_cross/§6♱");
-                    emoji.add("infinity/§b∞");
-                    emoji.add("male/§9♂");
-                    emoji.add("female/§d♀");
-                    emoji.add("mercury/§4☿");
-                    emoji.add("trademark/§b™");
-                    emoji.add("registered/§b®");
-                    emoji.add("copyright/§b©");
-                    emoji.add("multiplication/§4✖");
-                    emoji.add("cross/§c✗");
-                    emoji.add("waves/§e♒");
-                    emoji.add("up/§9▲");
-                    emoji.add("down/§9▼");
-                    emoji.add("dot_empty/§b○");
-                    emoji.add("dot_filled/§b●");
-                    emoji.add("tsu_smile/§eツ");
-                    emoji.add("times/§f回");
-                    emoji.add("for_all/§f∀");
-                    emoji.add("up_tack/§f⊥");
-                    emoji.add("angle/§f∠");
-                    emoji.add("logic_or/§f∨");
-                    emoji.add("logic_and/§f∧");
-                    emoji.add("intersection/§f∩");
-                    emoji.add("subset_of/§f⊂");
-                    emoji.add("superset_of/§f⊃");
-                    emoji.add("union/§f∪");
-                    configuration.set("Chat.Emoji.List", emoji);
-                }
-                if(!configuration.isSet("Message.Prefix")) {
-                    configuration.set("Message.Prefix", "§6HyperChat §8|");
-                }
-                if(!configuration.isSet("Message.Error.Permission")) {
-                    configuration.set("Message.Error.Permission", "{Prefix} §cYou do not have the permission to perform this command§8.");
-                }
-                if(!configuration.isSet("Message.Error.Syntax")) {
-                    configuration.set("Message.Error.Syntax", "{Prefix} §cThe command syntax is not correct§8. §cUsage§8: §e{Usage}");
-                }
-                if(!configuration.isSet("Message.Error.PlayerInvalid")) {
-                    configuration.set("Message.Error.PlayerInvalid", "{Prefix} §cThe given player is invalid§8.");
-                }
-                if(!configuration.isSet("Message.Error.PlayerSelf")) {
-                    configuration.set("Message.Error.PlayerSelf", "{Prefix} §cYou cannot do that to yourself§8.");
-                }
-                if(!configuration.isSet("Message.Error.MutedChat")) {
-                    configuration.set("Message.Error.MutedChat", "{Prefix} §cYou are currently muted§8. §cReason: §e{Reason}");
-                }
-                if(!configuration.isSet("Message.Notification.Mute.Sender")) {
-                    configuration.set("Message.Notification.Mute.Sender", "{Prefix} §e{Player} §chas been muted §8. §cReason§8: §e{Reason}");
-                }
-                if(!configuration.isSet("Message.Notification.Mute.Target")) {
-                    configuration.set("Message.Notification.Mute.Target", "{Prefix} §cYou have been muted§8. §cReason§8: §e{Reason}");
-                }
-                if(!configuration.isSet("Message.Notification.Unmute.Sender")) {
-                    configuration.set("Message.Notification.Unmute.Sender", "{Prefix} §e{Player} §chas been unmuted§8.");
-                }
-                if(!configuration.isSet("Message.Notification.Unmute.Target")) {
-                    configuration.set("Message.Notification.Unmute.Target", "{Prefix} §cYou have been unmuted§8.");
-                }
-
-                try {
-                    configuration.save(settingsConfigFile);
-                } catch(IOException exception) {
-                    exception.printStackTrace();
-                }
-
+            try {
+                configuration.save(settingsConfigFile);
+            } catch(IOException exception) {
+                exception.printStackTrace();
             }
 
         } else {
