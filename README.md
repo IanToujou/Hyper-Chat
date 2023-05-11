@@ -22,7 +22,6 @@ HyperChat is a plugin to customize and enhance your chat experience. It features
 ## 📸 GALLERY
 
 ![Chat](https://github.com/IanToujou/Hyper-Chat/assets/44029196/289d2b2f-cd17-40b2-865f-1984adb2b714)
-![config](https://github.com/IanToujou/Hyper-Chat/assets/44029196/6aa795cf-f247-4c63-a196-1bf699ec8ed9)
 
 ## 🛠️ SUPPORT
 
