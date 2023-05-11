@@ -211,7 +211,7 @@ public class Config {
                 configuration.set("Message.Error.MutedChat", "{Prefix} §cYou are currently muted§8. §cReason: §e{Reason}");
             }
             if(!configuration.isSet("Message.Notification.Mute.Sender")) {
-                configuration.set("Message.Notification.Mute.Sender", "{Prefix} §e{Player} §chas been muted §8. §cReason§8: §e{Reason}");
+                configuration.set("Message.Notification.Mute.Sender", "{Prefix} §e{Player} §chas been muted§8. §cReason§8: §e{Reason}");
             }
             if(!configuration.isSet("Message.Notification.Mute.Target")) {
                 configuration.set("Message.Notification.Mute.Target", "{Prefix} §cYou have been muted§8. §cReason§8: §e{Reason}");

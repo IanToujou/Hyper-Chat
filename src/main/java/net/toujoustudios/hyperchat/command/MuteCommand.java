@@ -4,6 +4,8 @@ import net.toujoustudios.hyperchat.config.Config;
 import net.toujoustudios.hyperchat.data.PlayerManager;
 import net.toujoustudios.hyperchat.util.StringUtil;
 import org.bukkit.Bukkit;
+import org.bukkit.Sound;
+import org.bukkit.SoundCategory;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -34,6 +36,11 @@ public class MuteCommand implements CommandExecutor {
             return false;
         }
 
+        if(target == player) {
+            player.sendMessage(Config.MESSAGE_ERROR_PLAYER_SELF);
+            return false;
+        }
+
         StringBuilder reasonBuilder = new StringBuilder();
         if(args.length > 1) {
             for(int i = 1; i < args.length; i++) {
@@ -51,6 +58,8 @@ public class MuteCommand implements CommandExecutor {
 
         targetManager.mute(reason);
         player.sendMessage(Config.MESSAGE_NOTIFICATION_MUTE_SENDER.replace("{Player}", target.getName()).replace("{Reason}", reasonBuilder.toString()));
+        player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_BIT, SoundCategory.MASTER, 100, 0.3f);
+        target.playSound(target.getLocation(), Sound.BLOCK_NOTE_BLOCK_BIT, SoundCategory.MASTER, 100, 0.3f);
         target.sendMessage(Config.MESSAGE_NOTIFICATION_MUTE_TARGET.replace("{Reason}", reason));
 
         return false;
