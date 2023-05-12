@@ -15,8 +15,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class HyperChat extends JavaPlugin {
 
     public static String PLUGIN_NAME = "HyperChat";
-    public static String PLUGIN_VERSION = "1.0.0";
-    public static int CONFIG_VERSION = 1;
+    public static String PLUGIN_VERSION = "1.0.1";
 
     private static HyperChat instance;
     private PluginManager pluginManager;
